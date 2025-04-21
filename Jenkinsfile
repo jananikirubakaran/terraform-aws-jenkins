@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/jananikirubakaran/terraform-aws-jenkins.git', branch: 'main'
+                git url: 'https://github.com/jananikirubakaran/terraform-aws-jenkins.git', branch: 'master'
             }
         }
 
