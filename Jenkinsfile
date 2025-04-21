@@ -19,7 +19,7 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                withAWS(credentials: 'aws', region: 'us-east-1') {
                     sh 'terraform init'
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                withAWS(credentials: 'aws', region: 'us-east-1') {
                     sh 'terraform plan'
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 input message: 'Do you want to apply the changes?'
-                withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                withAWS(credentials: 'aws', region: 'us-east-1') {
                     sh 'terraform apply -auto-approve'
                 }
             }
